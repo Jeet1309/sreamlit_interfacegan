@@ -18,9 +18,9 @@ This repository provides a simple interface to perform latent space manipulation
 
 ## 🧠 Requirements
 
-- Python 3.8+
+- Python 3.6+
 - PyTorch 1.7.1 with CUDA 11.0 (custom install)
-- NVIDIA GPU (tested on RTX 4070 with CUDA 12.5 system drivers)
+- NVIDIA GPU (needs to have support of at least CUDA 10+)
 
 ---
 
