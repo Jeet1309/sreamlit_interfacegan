@@ -60,26 +60,17 @@ scikit-learn
 
 ## 🖼️ Usage
 
-### Generate an initial image and latent vector
-
-```bash
-python generate_latent.py \
-  -m pggan_celebahq \
-  -n 1 \
-  -o latent_vectors/pggan_sample
-```
-
 ### Edit latent vector with specific attribute
 
 ```bash
 python edit.py \
   -m pggan_celebahq \
   -b boundaries/pggan_celebahq_smile_boundary.npy \
-  -n 1 \
-  -o results/pggan_celebahq_smile_editing \
-  --start_distance -3.0 \
-  --end_distance 3.0 \
-  --step 1.0
+  -n 1 \ ##optional
+  -o results/pggan_celebahq_smile_editing \ 
+  --start_distance -3.0 \  ##optional 
+  --end_distance 3.0 \  ##optional
+  --step 10  ##optional
 ```
 
 ### Run the Streamlit UI
