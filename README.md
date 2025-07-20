@@ -58,22 +58,6 @@ scikit-learn
 
 ---
 
-## 📁 Directory Structure
-
-```
-InterfaceGAN/
-├── edit.py                  # Main latent editing script
-├── generate_latent.py       # Save latent vector and image
-├── boundaries/              # Precomputed latent boundaries
-│   └── pggan_celebahq_smile_boundary.npy
-├── latent_vectors/          # Saved latents
-├── results/                 # Output images
-├── app_streamlit.py         # Streamlit UI for editing
-└── README.md
-```
-
----
-
 ## 🖼️ Usage
 
 ### Generate an initial image and latent vector
