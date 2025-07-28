@@ -87,9 +87,9 @@ Built with **Streamlit**, the app supports:
 
 ### 🔀 Style Mixing
 
-| Source | Target | Mixed |
+| Source | Mixed | Mixed |
 |--------|--------|-------|
-| ![](results/source.png) | ![](results/target.png) | ![](results/mixed.png) |
+| ![](results/3.png) | ![](results/31.png) | ![](results/32.png) |
 
 > Upload your result images into a `results/` folder in your GitHub repo to display them here.
 
