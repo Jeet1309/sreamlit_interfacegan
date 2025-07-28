@@ -22,10 +22,9 @@ def load_generator(model_name, latent_space_type='z'):
     return generator, kwargs
 
 
-def sample_latent(generator, n_images=1, kwargs=None):
-    codes = generator.easy_sample(n_images)
-    if kwargs:
-        codes = generator.preprocess(codes, **kwargs)
+def sample_latent(generator, n_images=1, kwargs=None, latent_type= None):
+    codes = generator.easy_sample(n_images,**kwargs)
+    
     return codes
 
 
@@ -46,17 +45,19 @@ def load_boundaries(boundary_dir, model_name):
     smile = np.load(os.path.join(boundary_dir, f'{model_name}_smile_boundary.npy'))
     age = np.load(os.path.join(boundary_dir, f'{model_name}_age_boundary.npy'))
     gender = np.load(os.path.join(boundary_dir, f'{model_name}_gender_boundary.npy'))
-    return smile, age, gender
+    glases = np.load(os.path.join(boundary_dir, f'{model_name}_eyeglasses_boundary.npy'))
+    return smile, age, gender,glases
 
 
-def apply_edits(latent_code, smile_val, age_val, gender_val, smile_boundary, age_boundary, gender_boundary):
+def apply_edits(latent_code, smile_val, age_val, gender_val,glass_val, smile_boundary, age_boundary, gender_boundary,glass_boundary):
     direction = (smile_val * smile_boundary +
                  age_val * age_boundary +
-                 gender_val * gender_boundary)
+                 gender_val * gender_boundary+
+                 glass_val*glass_boundary)
     return latent_code + direction.reshape(1, -1)
 
 
-def run_editor(model_name='stylegan_ffhq',
+def run_editor(model_name='stylegan_celebahq',
                smile_val=0, age_val=0, gender_val=0,
                output_dir='results/edited_output',
                boundary_dir='boundaries',
@@ -65,7 +66,7 @@ def run_editor(model_name='stylegan_ffhq',
 
     os.makedirs(output_dir, exist_ok=True)
 
-    generator, kwargs = load_generator(model_name)
+    generator, kwargs = load_generator(model_name,'wp')
     latent_code = latent_override if latent_override is not None else sample_latent(generator, n_images=n_images, kwargs=kwargs)
 
     np.save(os.path.join(output_dir, 'latent.npy'), latent_code)
@@ -85,13 +86,16 @@ def run_editor(model_name='stylegan_ffhq',
 
 def generate_latent_and_original(model_name, output_dir='results/edited_output'):
     os.makedirs(output_dir, exist_ok=True)
-    generator, kwargs = load_generator(model_name)
+    generator, kwargs = load_generator(model_name,'z')
     latent_code = sample_latent(generator, n_images=1, kwargs=kwargs)
     original_img = synthesize_image(generator, latent_code, kwargs=kwargs)
     return generator, kwargs, latent_code, original_img
 
-def edit_latent_image(generator, kwargs, latent_code, smile_val, age_val, gender_val, boundary_dir='boundaries'):
-    smile_b, age_b, gender_b = load_boundaries(boundary_dir, generator.model_name)
-    edited_code = apply_edits(latent_code, smile_val, age_val, gender_val, smile_b, age_b, gender_b)
+def edit_latent_image(generator, kwargs, latent_code, smile_val, age_val, gender_val, glass_val, boundary_dir='boundaries'):
+    smile_b, age_b, gender_b,glass_b = load_boundaries(boundary_dir, generator.model_name)
+    edited_code = apply_edits(latent_code, smile_val, age_val, gender_val, glass_val,smile_b, age_b, gender_b,glass_b)
     edited_img = synthesize_image(generator, edited_code, kwargs=kwargs)
     return edited_img
+if __name__ =="__main__":
+    run_editor()
+    
