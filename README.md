@@ -89,9 +89,8 @@ Built with **Streamlit**, the app supports:
 
 | Source | Mixed | Mixed |
 |--------|--------|-------|
-| ![](results/3.png) | ![](results/31.png) | ![](results/32.png) |
+| ![](results/31.png) | ![](results/3.png) | ![](results/32.png) |
 
-> Upload your result images into a `results/` folder in your GitHub repo to display them here.
 
 ---
 
