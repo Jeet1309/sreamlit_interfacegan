@@ -80,9 +80,10 @@ Built with **Streamlit**, the app supports:
 
 | Attribute | Before | After |
 |----------|--------|-------|
-| Smile    | ![](results/1.png) | ![](results/editing_smile.png) |
-| Age      | ![](results/original2.png) | ![](results/editing_age.png)   |
-| Glasses  | ![](results/original3.png) | ![](results/editing_glasses.png) |
+| Smile    | ![](results/1.png) | ![](results/1_smile.png) |
+| Age      | ![](results/1.png) | ![](results/1_age.png)   |
+| Glasses  | ![](results/2.png) | ![](results/2_glasses.png) |
+| Gender  | ![](results/1.png) | ![](results/1_gender.png) |
 
 ### 🔀 Style Mixing
 
