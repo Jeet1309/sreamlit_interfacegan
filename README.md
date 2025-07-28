@@ -87,7 +87,7 @@ Built with **Streamlit**, the app supports:
 
 ### 🔀 Style Mixing
 
-| Source | Mixed | Mixed |
+| Source | Mixed | Target |
 |--------|--------|-------|
 | ![](results/31.png) | ![](results/3.png) | ![](results/32.png) |
 
