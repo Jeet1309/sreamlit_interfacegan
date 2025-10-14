@@ -1,4 +1,4 @@
-# 🎨 StyleGAN Latent Editor & StyleMixing UI
+# 🎨 Editor & StyleMixing UI
 
 This project provides a user-friendly UI for latent editing and style mixing using pretrained StyleGAN models like **StyleGAN-FFHQ** and **StyleGAN-CelebA-HQ**.  
 It allows interactive editing of facial attributes like **smile**, **age**, **gender**, and **glasses**, and supports **style mixing** between randomly generated faces.
@@ -59,7 +59,7 @@ StyleGAN2 is a powerful generative adversarial network architecture that consist
 Built with **Streamlit**, the app supports:
 
 ### ✅ Features:
-- Model selection: `stylegan_celebahq`, `stylegan_ffhq`
+- Model selection: `stylegan_celebahq`, `stylegan_ffhq`,`pggan_ffhq`
 - Generate one image and its latent vector
 - Attribute sliders:
 - Smile 😄
